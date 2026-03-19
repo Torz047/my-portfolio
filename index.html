@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christopher John B. Dela Peña</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f7f5;
+  --bg2: #eaf0ec;
+  --bg3: #deeae2;
+  --green: #1e6640;
+  --green-light: #2a8a56;
+  --green-pale: #1a5c38;
+  --accent: #1a7a46;
+  --text: #0f2419;
+  --text-muted: #4a6b57;
+  --border: rgba(0,0,0,0.09);
+  --card: rgba(255,255,255,0.85);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  height: 56px;
+  background: rgba(244,247,245,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 90% 50%, rgba(30,102,64,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 20%, rgba(26,122,70,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grid-line {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.1s forwards;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--accent);
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.0;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.2s forwards;
+}
+.hero h1 em { font-style: italic; color: var(--green); }
+.hero-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.35s forwards;
+}
+.hero-contacts {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.45s forwards;
+}
+.hero-contacts a, .hero-contacts span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.hero-contacts a:hover { color: var(--accent); }
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.55s forwards;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.8rem;
+  border-radius: 2px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,122,70,0.25); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.8rem;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* HERO CARD */
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.4s forwards;
+  position: relative;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--green-light));
+}
+.hero-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.hero-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: var(--accent);
+  border: 2px solid rgba(200,245,90,0.3);
+  flex-shrink: 0;
+}
+.hero-avatar-info strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.hero-avatar-info span {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+}
+.stats-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.stat-mini { background: #ffffff; padding: 1rem; text-align: center; }
+.stat-mini-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  color: var(--accent);
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-mini-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: 'Space Mono', monospace;
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(30,102,64,0.1);
+  border: 1px solid rgba(30,102,64,0.25);
+  border-radius: 100px;
+  padding: 0.4rem 1rem;
+  font-size: 11px;
+  color: var(--green);
+  font-family: 'Space Mono', monospace;
+}
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTIONS */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px; height: 1px;
+  background: var(--accent);
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 3rem;
+}
+.divider {
+  width: 100%; height: 1px;
+  background: var(--border);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.skill-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.skill-card:hover { border-color: rgba(200,245,90,0.2); transform: translateY(-3px); }
+.skill-card-icon {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  background: rgba(30,102,64,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 18px;
+}
+.skill-card h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+.skill-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+
+/* TOOLS */
+.tools-section {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 3rem;
+}
+.tools-inner { max-width: 1100px; margin: 0 auto; }
+.tools-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+  transition: border-color 0.2s, color 0.2s;
+}
+.tool-item:hover { border-color: rgba(26,122,70,0.4); color: var(--accent); }
+.tool-stars { display: flex; gap: 2px; }
+.star-filled { color: var(--accent); font-size: 10px; }
+.star-empty { color: #ccc; font-size: 10px; }
+
+/* EXPERIENCE */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+}
+.exp-item {
+  position: relative;
+  padding-bottom: 3rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.exp-item.visible { opacity: 1; transform: translateX(0); }
+.exp-dot {
+  position: absolute;
+  left: -2.4rem; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid #aaa;
+}
+.exp-dot.current {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(26,122,70,0.3);
+}
+.exp-tenure {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.exp-current-badge {
+  display: inline-block;
+  background: rgba(26,122,70,0.1);
+  border: 1px solid rgba(26,122,70,0.25);
+  color: var(--accent);
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-left: 0.8rem;
+  vertical-align: middle;
+}
+.exp-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.exp-company { font-size: 13px; color: var(--green-light); margin-bottom: 1rem; font-weight: 500; }
+.exp-duties { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.exp-duties li {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  display: flex;
+  gap: 0.7rem;
+}
+.exp-duties li::before {
+  content: '→';
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(30,102,64,0.04), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.project-card:hover { border-color: rgba(26,122,70,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.project-card:hover::before { opacity: 1; }
+.project-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: rgba(30,102,64,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 1.2rem;
+}
+.project-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.project-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+.project-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ABOUT */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.info-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.info-card .sub { font-size: 12px; color: var(--green-light); font-weight: 500; margin-bottom: 0.8rem; }
+.info-card .detail { font-size: 12px; color: var(--text-muted); line-height: 1.8; font-family: 'Space Mono', monospace; }
+.badge {
+  display: inline-block;
+  background: rgba(26,122,70,0.08);
+  border: 1px solid rgba(26,122,70,0.2);
+  color: var(--accent);
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.8rem;
+}
+.lang-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+.lang-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+}
+.ref-card { display: flex; gap: 1rem; align-items: flex-start; }
+.ref-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 14px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+.footer-copy span { color: var(--accent); }
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 5rem 1.5rem 3rem; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .tools-section { padding: 4rem 1.5rem; }
+  .two-col { grid-template-columns: 1fr; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">CJ · Dela Peña</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-line"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Production & Inventory Control Planner</div>
+      <h1>Christopher<br>John B.<br><em>Dela Peña</em></h1>
+      <p class="hero-desc">Licensed Electronics Engineer with 10+ years in manufacturing — bridging production planning, supply chain operations, and full-stack web development.</p>
+      <div class="hero-contacts">
+        <a href="tel:+639155184727">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          +63 915 518 4727
+        </a>
+        <a href="mailto:calixpogi019@gmail.com">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          calixpogi019@gmail.com
+        </a>
+        <span>
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Philippines
+        </span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects →</a>
+        <a href="#experience" class="btn-secondary">Work History</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-avatar-wrap">
+        <div class="hero-avatar">CJ</div>
+        <div class="hero-avatar-info">
+          <strong>Christopher John</strong>
+          <span>Licensed ECE · ECT</span>
+        </div>
+      </div>
+      <div class="stats-mini">
+        <div class="stat-mini">
+          <span class="stat-mini-num">10+</span>
+          <span class="stat-mini-label">Yrs Experience</span>
+        </div>
+        <div class="stat-mini">
+          <span class="stat-mini-num">3</span>
+          <span class="stat-mini-label">Key Roles</span>
+        </div>
+        <div class="stat-mini">
+          <span class="stat-mini-num">2</span>
+          <span class="stat-mini-label">PH Licenses</span>
+        </div>
+        <div class="stat-mini">
+          <span class="stat-mini-num">2</span>
+          <span class="stat-mini-label">Live Projects</span>
+        </div>
+      </div>
+      <div class="status-pill">
+        <div class="status-dot"></div>
+        Currently Employed · Open to Opportunities
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="skills">
+  <div class="section-label">What I Bring</div>
+  <div class="section-title">Core Competencies</div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">⚙️</div>
+      <h3>Electronics Engineering</h3>
+      <p>Licensed Electronics Engineer & Technician with deep technical foundation from BSECE at Bataan Peninsula State University.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">📊</div>
+      <h3>Production Planning</h3>
+      <p>Expert in creating profitable production plans, aligning raw material arrivals, and ensuring on-time complete delivery of all sales orders.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">📦</div>
+      <h3>Inventory Control</h3>
+      <p>End-to-end order monitoring from raw materials procurement through finished goods delivery with supplier KPI validation.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">👥</div>
+      <h3>Leadership & Management</h3>
+      <p>Proven track record leading production teams, managing workforce allocation, and driving daily targets across multiple processes.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">💻</div>
+      <h3>Full Stack Web Development</h3>
+      <p>Building real-world web applications including procurement systems — combining operational insight with technical execution.</p>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">📈</div>
+      <h3>Data Analysis</h3>
+      <p>Expert-level Excel proficiency and Power BI dashboards for KPI tracking, production reporting, and supply chain analytics.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="tools-section" id="tools">
+  <div class="tools-inner">
+    <div class="section-label">Tech Stack</div>
+    <div class="section-title" style="margin-bottom:0">Tools & Software</div>
+    <div class="tools-grid">
+      <div class="tool-item">
+        <div class="tool-stars"><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span></div>
+        Microsoft Excel
+      </div>
+      <div class="tool-item">
+        <div class="tool-stars"><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-empty">★</span></div>
+        MS Office Suite
+      </div>
+      <div class="tool-item">
+        <div class="tool-stars"><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-empty">★</span></div>
+        Visual Studio Code
+      </div>
+      <div class="tool-item">
+        <div class="tool-stars"><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-empty">★</span></div>
+        Code Sandbox
+      </div>
+      <div class="tool-item">
+        <div class="tool-stars"><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-empty">★</span></div>
+        SAP Business One
+      </div>
+      <div class="tool-item">
+        <div class="tool-stars"><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-filled">★</span><span class="star-empty">★</span><span class="star-empty">★</span></div>
+        Power BI
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="experience">
+  <div class="section-label">Career History</div>
+  <div class="section-title">Work Experience</div>
+  <div class="timeline">
+
+    <div class="exp-item">
+      <div class="exp-dot current"></div>
+      <div class="exp-tenure">Current Position <span class="exp-current-badge">Active</span></div>
+      <div class="exp-title">Production & Inventory Control Planner</div>
+      <div class="exp-company">Enplas Semiconductor Peripherals Inc. · Manufacturing Industry, Philippines</div>
+      <ul class="exp-duties">
+        <li>Monitor customer orders end-to-end from raw materials procurement to finished goods delivery</li>
+        <li>Ensure availability of materials through coordinated purchasing and supplier management</li>
+        <li>Monitor and support production workers' processing performance</li>
+        <li>Validate supplier efficiency through performance KPIs and on-site visits</li>
+        <li>Maintain accurate records using SAP Business One, Meslink, and other enterprise software tools</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-tenure">5.5 Years</div>
+      <div class="exp-title">Production Planner</div>
+      <div class="exp-company">Nicera Philippines Inc. · Manufacturing Industry, Philippines</div>
+      <ul class="exp-duties">
+        <li>Confirmed sales orders and coordinated with all affected functions across departments</li>
+        <li>Created profitable production plans optimized for delivery schedules and resource utilization</li>
+        <li>Aligned production plans with confirmed raw material arrivals to avoid supply gaps</li>
+        <li>Monitored status of all active sales orders to ensure complete and on-time delivery</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-tenure">5 Years</div>
+      <div class="exp-title">Production Group Leader</div>
+      <div class="exp-company">Nicera Philippines Inc. · Manufacturing Industry, Philippines</div>
+      <ul class="exp-duties">
+        <li>Led production teams to consistently achieve daily production targets and quality standards</li>
+        <li>Managed and resolved production abnormalities and process deviations promptly</li>
+        <li>Facilitated cross-training of personnel across multiple production processes</li>
+        <li>Monitored hourly process outputs and ensured smooth work-in-process flow</li>
+        <li>Managed workforce assignments and workload allocation to maximize daily goal attainment</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="projects">
+  <div class="section-label">Live Work</div>
+  <div class="section-title">Project Portfolio</div>
+  <div class="projects-grid">
+    <a class="project-card reveal" href="https://procureflow-e2htxyila-torz047s-projects.vercel.app/" target="_blank" rel="noopener">
+      <div class="project-icon">🛒</div>
+      <h3>ProcureFlow</h3>
+      <p>A full-featured procurement system application — managing purchase orders, supplier tracking, and procurement workflows built from real operational expertise.</p>
+      <div class="project-link">Visit Live Project →</div>
+    </a>
+    <a class="project-card reveal" href="https://283c6f-5173.csb.app/" target="_blank" rel="noopener">
+      <div class="project-icon">⚡</div>
+      <h3>CodeSandbox Project</h3>
+      <p>An interactive web development project showcasing full-stack capabilities and front-end engineering skills, built and hosted on CodeSandbox.</p>
+      <div class="project-link">Open Project →</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="section-label">Background</div>
+  <div class="section-title">Education & Reference</div>
+  <div class="two-col">
+    <div>
+      <div class="info-card reveal" style="margin-bottom:1.5rem">
+        <h3>Bataan Peninsula State University</h3>
+        <div class="sub">Bachelor of Science in Electronics Engineering</div>
+        <div class="detail">March 2009 – April 2013</div>
+        <div class="badge">Licensed ECE · Licensed ECT</div>
+      </div>
+      <div class="info-card reveal">
+        <h3>Languages</h3>
+        <div class="lang-tags">
+          <div class="lang-tag">🇵🇭 Filipino / Tagalog — Native</div>
+          <div class="lang-tag">🇬🇧 English — Proficient</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="info-card reveal" style="margin-bottom:1.5rem">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;">Professional Reference</div>
+        <div class="ref-card">
+          <div class="ref-avatar">RB</div>
+          <div>
+            <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--text);margin-bottom:2px;">Rhea Bactad</div>
+            <div style="font-size:12px;color:var(--green-light);margin-bottom:0.5rem;">Production Planning Supervisor</div>
+            <div class="detail">Nicera Philippines Inc.</div>
+            <div class="detail">+63 917 560 0768</div>
+          </div>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <h3>About Me</h3>
+        <p style="font-size:13.5px;color:var(--text-muted);line-height:1.8;margin-top:0.8rem;">A highly motivated and detail-oriented professional with over a decade of experience in manufacturing operations, production planning, and inventory management — combining a strong foundation in Electronics Engineering with hands-on leadership and full-stack development skills.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2025 <span>Christopher John B. Dela Peña</span> · All rights reserved.</div>
+  <div class="footer-copy">Philippines · Built for Vercel</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal, .exp-item').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
