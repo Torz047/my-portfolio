@@ -17,6 +17,8 @@
   --border:#e2e8f4;--border2:#c7d2e8;
   --shadow:0 2px 16px rgba(26,86,219,0.07);
   --shadow-lg:0 8px 40px rgba(26,86,219,0.12);
+  --whatsapp:#25D366;--whatsapp2:#e8fdf0;
+  --viber:#7360f2;--viber2:#f0eeff;
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--ink);overflow-x:hidden}
@@ -43,7 +45,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:60px;d
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 h1{font-family:'Syne',sans-serif;font-size:clamp(44px,7vw,90px);font-weight:800;line-height:.95;letter-spacing:-3px;margin-bottom:16px;color:var(--ink)}
 h1 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--blue);letter-spacing:-2px}
-.hero-sub{font-size:clamp(13px,1.5vw,15px);color:var(--muted);margin-bottom:44px;max-width:520px;line-height:1.9;font-weight:300}
+.hero-sub{font-size:clamp(13px,1.5vw,15px);color:var(--muted);margin-bottom:28px;max-width:520px;line-height:1.9;font-weight:300}
+
+/* Hero tagline block */
+.hero-tagline{max-width:640px;margin-bottom:44px;padding:24px 28px;background:var(--white);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;box-shadow:var(--shadow)}
+.hero-tagline p{font-size:13px;color:var(--ink2);line-height:1.9;font-weight:400;margin-bottom:12px}
+.hero-tagline p:last-child{margin-bottom:0;color:var(--muted);font-size:12px}
+
 .hero-stats{display:flex;gap:0;margin-bottom:48px;flex-wrap:wrap;border:1px solid var(--border);border-radius:12px;overflow:hidden;width:fit-content;background:var(--white);box-shadow:var(--shadow)}
 .stat{padding:20px 32px;border-right:1px solid var(--border);text-align:center}
 .stat:last-child{border-right:none}
@@ -55,6 +63,10 @@ h1 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--blue);l
 .btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(26,86,219,0.3)}.btn-primary:hover{background:#1347c2;transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,86,219,0.35)}
 .btn-accent{background:var(--accent2);color:#92400e;border:1px solid rgba(245,158,11,0.3)}.btn-accent:hover{background:#fef3c7;transform:translateY(-2px)}
 .btn-ghost{background:var(--white);color:var(--ink2);border:1px solid var(--border);box-shadow:var(--shadow)}.btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+
+/* Resume download button */
+.btn-download{background:linear-gradient(135deg,var(--green),#047857);color:#fff;box-shadow:0 4px 16px rgba(5,150,105,0.3)}.btn-download:hover{background:linear-gradient(135deg,#047857,#065f46);transform:translateY(-2px);box-shadow:0 8px 24px rgba(5,150,105,0.35)}
+.btn-download svg{width:15px;height:15px;fill:currentColor}
 
 /* Sections */
 section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
@@ -123,6 +135,15 @@ section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-in
 .contact-item:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .contact-item.li-card{border-color:rgba(26,86,219,0.2);background:var(--blue2)}
 .contact-item.li-card:hover{border-color:var(--blue)}
+
+/* WhatsApp card */
+.contact-item.wa-card{border-color:rgba(37,211,102,0.25);background:var(--whatsapp2)}
+.contact-item.wa-card:hover{border-color:var(--whatsapp);box-shadow:0 8px 40px rgba(37,211,102,0.15)}
+
+/* Viber card */
+.contact-item.viber-card{border-color:rgba(115,96,242,0.25);background:var(--viber2)}
+.contact-item.viber-card:hover{border-color:var(--viber);box-shadow:0 8px 40px rgba(115,96,242,0.15)}
+
 .contact-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .contact-label{font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;font-weight:600}
 .contact-value{font-size:13px;font-weight:600;color:var(--ink2)}
@@ -163,6 +184,13 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
   <div class="hero-tag">Open to Opportunities · Philippines</div>
   <h1>Christopher John<br/><em>Dela Peña</em></h1>
   <p class="hero-sub">Licensed Electronics Engineer with 10+ years in manufacturing — bridging production planning, supply chain operations, and full-stack web development.</p>
+
+  <!-- NEW: Hero tagline block -->
+  <div class="hero-tagline">
+    <p>I am a production planning professional with over 10 years of experience in manufacturing and operations, now building modern web-based systems using React and Node.js.</p>
+    <p>I specialize in creating tools that improve efficiency, streamline workflows, and support data-driven decision-making.</p>
+  </div>
+
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">Key Roles</div></div>
@@ -176,6 +204,11 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       LinkedIn Profile
     </a>
     <a href="#experience" class="btn btn-ghost">Work History</a>
+    <!-- NEW: Resume Download Button -->
+    <a href="YOUR_RESUME_FILE.pdf" download="Christopher_John_Dela_Pena_Resume.pdf" class="btn btn-download">
+      <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4v-2h14v2H5z"/></svg>
+      Download Resume
+    </a>
   </div>
 </div>
 
@@ -259,7 +292,6 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
   <div class="section-title">Project <span>Portfolio</span></div>
   <div class="projects-grid">
 
-    <!-- ✦ NEW — Alliance Order Tracker -->
     <div class="project-card featured">
       <div class="featured-banner">✦ Latest Project — 2025</div>
       <div class="project-header">
@@ -362,20 +394,59 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
   <div class="section-label">Get In Touch</div>
   <div class="section-title">Contact <span>Me</span></div>
   <div class="contact-grid">
+
+    <!-- Phone -->
     <a href="tel:+639155184727" class="contact-item">
       <div class="contact-icon" style="background:var(--blue2)">📱</div>
       <div><div class="contact-label">Phone</div><div class="contact-value">+63 915 518 4727</div></div>
     </a>
-    <a href="/cdn-cgi/l/email-protection#36555e445f454259465e53445c595e581852535a574676515b575f5a1855595b" class="contact-item">
+
+    <!-- Email -->
+    <a href="mailto:christopherjohnbdelapena@gmail.com" class="contact-item">
       <div class="contact-icon" style="background:var(--green2)">✉️</div>
-      <div><div class="contact-label">Email</div><div class="contact-value"><span class="__cf_email__" data-cfemail="a0c3c8d2c9d3d4cfd0c8c5d2cacfc8ce8ec4c5ccc1d0e0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</span></div></div>
+      <div><div class="contact-label">Email</div><div class="contact-value">christopherjohnbdelapena<br/>@gmail.com</div></div>
     </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/639155184727" target="_blank" class="contact-item wa-card">
+      <div class="contact-icon" style="background:#d1fae5">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-value" style="color:#059669">+63 915 518 4727</div>
+      </div>
+    </a>
+
+    <!-- Viber -->
+    <a href="viber://chat?number=%2B639155184727" class="contact-item viber-card">
+      <div class="contact-icon" style="background:#ede9fe">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#7360f2"><path d="M11.985.015C9.05.015 4.228 1.102 1.809 7.605c-.868 2.28-.843 4.238-.843 6.179 0 1.717.135 4.851 2.006 6.844v2.817c0 .43.273.818.682.959.41.141.862.012 1.136-.322l1.57-1.938c.764.152 1.592.23 2.458.23h.15c-.086-.448-.13-.91-.13-1.383 0-4.227 3.397-7.625 7.625-7.625 4.228 0 7.625 3.398 7.625 7.625 0 .473-.044.935-.13 1.383h.142c6.464 0 8.5-5.738 8.5-8.594C24 3.375 17.785.015 11.985.015zm-.618 5.938c-.408 0-.739.33-.739.738v1.106c-1.557.346-2.77 1.56-3.116 3.116H6.406a.739.739 0 0 0 0 1.477h1.106c.346 1.557 1.56 2.77 3.116 3.116v1.106a.739.739 0 0 0 1.477 0v-1.106c1.557-.346 2.77-1.56 3.116-3.116h1.106a.739.739 0 0 0 0-1.477h-1.106c-.346-1.557-1.56-2.77-3.116-3.116V6.69a.739.739 0 0 0-.738-.738zM16.463 13.77c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5 2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5zm-2.963 0a1.538 1.538 0 1 0-3.075 0 1.538 1.538 0 0 0 3.075 0z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Viber</div>
+        <div class="contact-value" style="color:#7360f2">+63 915 518 4727</div>
+      </div>
+    </a>
+
+    <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/christopher-john-dela-pe%C3%B1a-806a082b1" target="_blank" class="contact-item li-card">
       <div class="contact-icon" style="background:var(--accent2)">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--blue)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </div>
       <div><div class="contact-label">LinkedIn</div><div class="contact-value" style="color:#92400e">Christopher John Dela Peña</div></div>
     </a>
+
+    <!-- Location -->
     <div class="contact-item" style="cursor:default">
       <div class="contact-icon" style="background:var(--accent2)">📍</div>
-      <div><div class="contact-label">Location</div><div class="contact-value">Philippines · Open to
+      <div><div class="contact-label">Location</div><div class="contact-value">Philippines · Open to Remote</div></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>© 2025 Christopher John B. Dela Peña · Licensed Electronics Engineer · Philippines</footer>
+
+</body>
+</html>
