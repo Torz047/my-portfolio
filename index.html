@@ -109,6 +109,12 @@ section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-in
 .project-link{display:inline-flex;align-items:center;gap:6px;color:var(--blue);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.3px;transition:gap .2s}
 .project-link:hover{gap:10px}
 .new-badge{padding:4px 12px;background:var(--blue);color:#fff;border-radius:20px;font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.ps-block{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.ps-row{display:flex;gap:10px;align-items:flex-start}
+.ps-label{font-size:9px;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.ps-label.problem{background:#fef2f2;color:#dc2626;border:1px solid rgba(220,38,38,0.2)}
+.ps-label.solution{background:var(--green2);color:var(--green);border:1px solid rgba(5,150,105,0.2)}
+.ps-text{font-size:12px;color:var(--muted);line-height:1.8}
 
 .edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .edu-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px;box-shadow:var(--shadow)}
@@ -279,7 +285,10 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       <div class="project-header">
         <div class="project-emoji">📋</div>
         <div class="project-name">Order Tracking List</div>
-        <div class="project-desc">A role-based production order tracking system built from real procurement experience. Features login authentication with 4 roles (Admin, Planner, Logistics, Inventory), full order management with 17 fields, field-level permissions per role, AWB & shipment invoice tracking, and parts issuance control — with CSV export and live date alerts.</div>
+        <div class="ps-block">
+          <div class="ps-row"><span class="ps-label problem">Problem</span><span class="ps-text">Tracking shipment orders across multiple Excel files and emails made it hard to get a real-time view of order status, AWB numbers, and parts issuance.</span></div>
+          <div class="ps-row"><span class="ps-label solution">Solution</span><span class="ps-text">Built a role-based web system with 4 user roles (Admin, Planner, Logistics, Inventory), 17-field order management, field-level permissions, AWB & invoice tracking, and CSV export with live date alerts.</span></div>
+        </div>
         <div class="project-tags">
           <span class="tag tag-blue">React</span>
           <span class="tag tag-blue">Vite</span>
@@ -299,7 +308,10 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       <div class="project-header">
         <div class="project-emoji">🏭</div>
         <div class="project-name">ProcurementFlow</div>
-        <div class="project-desc">A full-featured 7-step procurement management system built from real operational experience. Handles purchase orders, BOM triage, RFQ workflows with price tables, supplier management, confirmation review with negotiation loop, and logistics arrivals — with role-based access for 5 teams.</div>
+        <div class="ps-block">
+          <div class="ps-row"><span class="ps-label problem">Problem</span><span class="ps-text">Too many Excel and Smartsheet files to summarize and monitor procurement orders across purchasing, RFQ, supplier confirmation, and logistics teams.</span></div>
+          <div class="ps-row"><span class="ps-label solution">Solution</span><span class="ps-text">Created a system that unifies data updating with a centralized web-based platform — a full 7-step procurement flow with role-based access for 5 teams, BOM triage, price tables, and a supplier negotiation loop.</span></div>
+        </div>
         <div class="project-tags">
           <span class="tag tag-blue">React</span>
           <span class="tag tag-blue">Supabase</span>
@@ -318,7 +330,10 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       <div class="project-header">
         <div class="project-emoji">🛒</div>
         <div class="project-name">ProcureFlow</div>
-        <div class="project-desc">A procurement system application managing purchase orders, supplier tracking, and procurement workflows — built from real operational expertise in supply chain management.</div>
+        <div class="ps-block">
+          <div class="ps-row"><span class="ps-label problem">Problem</span><span class="ps-text">Purchase orders and supplier data were scattered across spreadsheets with no unified workflow for tracking procurement status.</span></div>
+          <div class="ps-row"><span class="ps-label solution">Solution</span><span class="ps-text">Built a procurement web application centralizing purchase orders, supplier tracking, and procurement workflows — drawn directly from real supply chain operations experience.</span></div>
+        </div>
         <div class="project-tags">
           <span class="tag tag-blue">React</span>
           <span class="tag tag-blue">Supabase</span>
@@ -334,7 +349,10 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       <div class="project-header">
         <div class="project-emoji">⚡</div>
         <div class="project-name">CodeSandbox Project</div>
-        <div class="project-desc">An interactive web development project showcasing full-stack capabilities and front-end engineering skills, built and hosted on CodeSandbox.</div>
+        <div class="ps-block">
+          <div class="ps-row"><span class="ps-label problem">Problem</span><span class="ps-text">Needed a fast, shareable environment to prototype and demonstrate full-stack web development concepts without complex local setup.</span></div>
+          <div class="ps-row"><span class="ps-label solution">Solution</span><span class="ps-text">Built and hosted an interactive web project on CodeSandbox, showcasing front-end engineering skills with live preview and instant sharing.</span></div>
+        </div>
         <div class="project-tags">
           <span class="tag tag-blue">JavaScript</span>
           <span class="tag tag-blue">Full Stack</span>
@@ -382,7 +400,7 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       <div><div class="contact-label">Phone</div><div class="contact-value">+63 915 518 4727</div></div>
     </a>
 
-    <a href="mailto:ChristopherJohnDelaPena047@gmail.com" class="contact-item">
+    <a href="/cdn-cgi/l/email-protection#80c3e8f2e9f3f4eff0e8e5f2caefe8eec4e5ece1d0e5eee1b0b4b7c0e7ede1e9ecaee3efed" class="contact-item">
       <div class="contact-icon" style="background:var(--green2)">✉️</div>
       <div><div class="contact-label">Email</div><div class="contact-value">ChristopherJohnDelaPena047<br/>@gmail.com</div></div>
     </a>
@@ -424,7 +442,7 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
 
 <footer>© 2025 Christopher John B. Dela Peña · Licensed Electronics Engineer · Philippines</footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function downloadResume() {
   const btn = document.getElementById('dl-btn');
   const label = document.getElementById('dl-label');
@@ -597,13 +615,3 @@ function downloadResume() {
       btn.disabled = false;
     }, 3000);
 
-  } catch (err) {
-    console.error('Download error:', err);
-    label.textContent = 'Error — try again';
-    btn.disabled = false;
-  }
-}
-</script>
-
-</body>
-</html>
