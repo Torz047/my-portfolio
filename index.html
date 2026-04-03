@@ -23,11 +23,9 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--ink);overflow-x:hidden}
 
-/* Subtle grid background */
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.4;pointer-events:none;z-index:0}
 body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 10% 0%,rgba(26,86,219,0.06),transparent 60%),radial-gradient(ellipse 50% 40% at 90% 100%,rgba(245,158,11,0.06),transparent 60%);pointer-events:none;z-index:0}
 
-/* Nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(248,249,252,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--blue);letter-spacing:-0.5px}
 .nav-logo span{color:var(--accent)}
@@ -38,7 +36,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:60px;d
 .nav-li:hover{background:#1347c2;transform:translateY(-1px)}
 .nav-li svg{width:13px;height:13px;fill:currentColor}
 
-/* Hero */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 40px 80px;position:relative;z-index:1;max-width:1200px;margin:0 auto}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--green2);border:1px solid rgba(5,150,105,0.25);border-radius:20px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:36px;width:fit-content}
 .hero-tag::before{content:'';width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s ease-in-out infinite}
@@ -47,7 +44,6 @@ h1{font-family:'Syne',sans-serif;font-size:clamp(44px,7vw,90px);font-weight:800;
 h1 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--blue);letter-spacing:-2px}
 .hero-sub{font-size:clamp(13px,1.5vw,15px);color:var(--muted);margin-bottom:28px;max-width:520px;line-height:1.9;font-weight:300}
 
-/* Hero tagline block */
 .hero-tagline{max-width:640px;margin-bottom:44px;padding:24px 28px;background:var(--white);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;box-shadow:var(--shadow)}
 .hero-tagline p{font-size:13px;color:var(--ink2);line-height:1.9;font-weight:400;margin-bottom:12px}
 .hero-tagline p:last-child{margin-bottom:0;color:var(--muted);font-size:12px}
@@ -63,19 +59,15 @@ h1 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--blue);l
 .btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(26,86,219,0.3)}.btn-primary:hover{background:#1347c2;transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,86,219,0.35)}
 .btn-accent{background:var(--accent2);color:#92400e;border:1px solid rgba(245,158,11,0.3)}.btn-accent:hover{background:#fef3c7;transform:translateY(-2px)}
 .btn-ghost{background:var(--white);color:var(--ink2);border:1px solid var(--border);box-shadow:var(--shadow)}.btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
-
-/* Resume download button */
 .btn-download{background:linear-gradient(135deg,var(--green),#047857);color:#fff;box-shadow:0 4px 16px rgba(5,150,105,0.3)}.btn-download:hover{background:linear-gradient(135deg,#047857,#065f46);transform:translateY(-2px);box-shadow:0 8px 24px rgba(5,150,105,0.35)}
-.btn-download svg{width:15px;height:15px;fill:currentColor}
+.btn-download:disabled{opacity:.7;cursor:not-allowed;transform:none}
 
-/* Sections */
 section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .section-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;font-weight:600}
 .section-eyebrow::before{content:'';width:24px;height:2px;background:var(--blue);border-radius:2px}
 .section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,4vw,48px);font-weight:800;letter-spacing:-1.5px;margin-bottom:52px;line-height:1;color:var(--ink)}
 .section-title span{color:var(--blue)}
 
-/* Skills */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
 .skill-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all .22s;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .skill-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--accent));opacity:0;transition:opacity .22s}
@@ -87,7 +79,6 @@ section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-in
 .tech-pill{padding:7px 16px;background:var(--white);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--ink2);box-shadow:var(--shadow);transition:all .15s}
 .tech-pill:hover{border-color:var(--blue);color:var(--blue)}
 
-/* Experience */
 .exp-list{display:flex;flex-direction:column}
 .exp-item{display:grid;grid-template-columns:220px 1fr;gap:48px;padding:44px 0;border-bottom:1px solid var(--border)}
 .exp-item:last-child{border-bottom:none}
@@ -99,7 +90,6 @@ section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-in
 .exp-bullets li{font-size:12px;color:var(--muted);padding-left:18px;position:relative;line-height:1.8}
 .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:11px;font-weight:700}
 
-/* Projects */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
 .project-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;display:flex;flex-direction:column;box-shadow:var(--shadow)}
 .project-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--blue)}
@@ -120,7 +110,6 @@ section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-in
 .project-link:hover{gap:10px}
 .new-badge{padding:4px 12px;background:var(--blue);color:#fff;border-radius:20px;font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
 
-/* Education */
 .edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .edu-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:30px;box-shadow:var(--shadow)}
 .edu-school{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;margin-bottom:8px;color:var(--ink)}
@@ -129,26 +118,19 @@ section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-in
 .badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .badge{padding:5px 14px;background:var(--accent2);border:1px solid rgba(245,158,11,0.25);border-radius:20px;font-size:10px;color:#92400e;font-weight:600}
 
-/* Contact */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .contact-item{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);transition:all .2s;box-shadow:var(--shadow)}
 .contact-item:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .contact-item.li-card{border-color:rgba(26,86,219,0.2);background:var(--blue2)}
 .contact-item.li-card:hover{border-color:var(--blue)}
-
-/* WhatsApp card */
 .contact-item.wa-card{border-color:rgba(37,211,102,0.25);background:var(--whatsapp2)}
 .contact-item.wa-card:hover{border-color:var(--whatsapp);box-shadow:0 8px 40px rgba(37,211,102,0.15)}
-
-/* Viber card */
 .contact-item.viber-card{border-color:rgba(115,96,242,0.25);background:var(--viber2)}
 .contact-item.viber-card:hover{border-color:var(--viber);box-shadow:0 8px 40px rgba(115,96,242,0.15)}
-
 .contact-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .contact-label{font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;font-weight:600}
 .contact-value{font-size:13px;font-weight:600;color:var(--ink2)}
 
-/* Divider */
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 40px;position:relative;z-index:1}
 
 footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-spacing:1px;position:relative;z-index:1;border-top:1px solid var(--border)}
@@ -185,7 +167,6 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
   <h1>Christopher John<br/><em>Dela Peña</em></h1>
   <p class="hero-sub">Licensed Electronics Engineer with 10+ years in manufacturing — bridging production planning, supply chain operations, and full-stack web development.</p>
 
-  <!-- NEW: Hero tagline block -->
   <div class="hero-tagline">
     <p>I am a production planning professional with over 10 years of experience in manufacturing and operations, now building modern web-based systems using React and Node.js.</p>
     <p>I specialize in creating tools that improve efficiency, streamline workflows, and support data-driven decision-making.</p>
@@ -197,6 +178,7 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
     <div class="stat"><div class="stat-num">2</div><div class="stat-label">PH Licenses</div></div>
     <div class="stat"><div class="stat-num">4</div><div class="stat-label">Live Projects</div></div>
   </div>
+
   <div class="hero-actions">
     <a href="#projects" class="btn btn-primary">View Projects →</a>
     <a href="https://www.linkedin.com/in/christopher-john-dela-pe%C3%B1a-806a082b1" target="_blank" class="btn btn-accent">
@@ -204,11 +186,11 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       LinkedIn Profile
     </a>
     <a href="#experience" class="btn btn-ghost">Work History</a>
-    <!-- NEW: Resume Download Button -->
-    <a href="YOUR_RESUME_FILE.pdf" download="Christopher_John_Dela_Pena_Resume.pdf" class="btn btn-download">
+
+    <button id="dl-btn" onclick="downloadResume()" class="btn btn-download">
       <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4v-2h14v2H5z"/></svg>
-      Download Resume
-    </a>
+      <span id="dl-label">Download Resume</span>
+    </button>
   </div>
 </div>
 
@@ -395,19 +377,16 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
   <div class="section-title">Contact <span>Me</span></div>
   <div class="contact-grid">
 
-    <!-- Phone -->
     <a href="tel:+639155184727" class="contact-item">
       <div class="contact-icon" style="background:var(--blue2)">📱</div>
       <div><div class="contact-label">Phone</div><div class="contact-value">+63 915 518 4727</div></div>
     </a>
 
-    <!-- Email -->
     <a href="mailto:christopherjohnbdelapena@gmail.com" class="contact-item">
       <div class="contact-icon" style="background:var(--green2)">✉️</div>
       <div><div class="contact-label">Email</div><div class="contact-value">christopherjohnbdelapena<br/>@gmail.com</div></div>
     </a>
 
-    <!-- WhatsApp -->
     <a href="https://wa.me/639155184727" target="_blank" class="contact-item wa-card">
       <div class="contact-icon" style="background:#d1fae5">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
@@ -418,7 +397,6 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       </div>
     </a>
 
-    <!-- Viber -->
     <a href="viber://chat?number=%2B639155184727" class="contact-item viber-card">
       <div class="contact-icon" style="background:#ede9fe">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="#7360f2"><path d="M11.985.015C9.05.015 4.228 1.102 1.809 7.605c-.868 2.28-.843 4.238-.843 6.179 0 1.717.135 4.851 2.006 6.844v2.817c0 .43.273.818.682.959.41.141.862.012 1.136-.322l1.57-1.938c.764.152 1.592.23 2.458.23h.15c-.086-.448-.13-.91-.13-1.383 0-4.227 3.397-7.625 7.625-7.625 4.228 0 7.625 3.398 7.625 7.625 0 .473-.044.935-.13 1.383h.142c6.464 0 8.5-5.738 8.5-8.594C24 3.375 17.785.015 11.985.015zm-.618 5.938c-.408 0-.739.33-.739.738v1.106c-1.557.346-2.77 1.56-3.116 3.116H6.406a.739.739 0 0 0 0 1.477h1.106c.346 1.557 1.56 2.77 3.116 3.116v1.106a.739.739 0 0 0 1.477 0v-1.106c1.557-.346 2.77-1.56 3.116-3.116h1.106a.739.739 0 0 0 0-1.477h-1.106c-.346-1.557-1.56-2.77-3.116-3.116V6.69a.739.739 0 0 0-.738-.738zM16.463 13.77c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5 2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5zm-2.963 0a1.538 1.538 0 1 0-3.075 0 1.538 1.538 0 0 0 3.075 0z"/></svg>
@@ -429,7 +407,6 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       </div>
     </a>
 
-    <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/christopher-john-dela-pe%C3%B1a-806a082b1" target="_blank" class="contact-item li-card">
       <div class="contact-icon" style="background:var(--accent2)">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--blue)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -437,7 +414,6 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
       <div><div class="contact-label">LinkedIn</div><div class="contact-value" style="color:#92400e">Christopher John Dela Peña</div></div>
     </a>
 
-    <!-- Location -->
     <div class="contact-item" style="cursor:default">
       <div class="contact-icon" style="background:var(--accent2)">📍</div>
       <div><div class="contact-label">Location</div><div class="contact-value">Philippines · Open to Remote</div></div>
@@ -447,6 +423,188 @@ footer{padding:40px;text-align:center;color:var(--muted);font-size:11px;letter-s
 </section>
 
 <footer>© 2025 Christopher John B. Dela Peña · Licensed Electronics Engineer · Philippines</footer>
+
+<!-- ✅ FIXED: Local resume generation — no API call needed -->
+<script>
+function downloadResume() {
+  const btn = document.getElementById('dl-btn');
+  const label = document.getElementById('dl-label');
+  btn.disabled = true;
+  label.textContent = 'Generating...';
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Christopher John B. Dela Peña — Resume</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Georgia,serif;background:#fff;color:#1a202c;max-width:860px;margin:0 auto;padding:40px 48px;font-size:13px}
+  h1{font-size:28px;color:#0d4f6c;letter-spacing:-0.5px;margin-bottom:4px}
+  .subtitle{font-size:13px;color:#2d6a7f;margin-bottom:8px;font-style:italic}
+  .contact-row{font-size:11.5px;color:#555;margin-bottom:20px;line-height:1.8}
+  .contact-row a{color:#0d4f6c;text-decoration:none}
+  hr{border:none;border-top:2px solid #0d4f6c;margin:18px 0 14px}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:#0d4f6c;margin-bottom:12px;font-family:Arial,sans-serif}
+  .job{margin-bottom:18px}
+  .job-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+  .job-title{font-weight:bold;font-size:14px;color:#1a202c}
+  .job-period{font-size:11px;color:#777;font-style:italic}
+  .job-company{font-size:12px;color:#2d6a7f;margin-bottom:6px}
+  ul{padding-left:18px;margin-top:4px}
+  li{margin-bottom:4px;line-height:1.6;color:#444}
+  .skills-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .skill{background:#e6f4f8;color:#0d4f6c;padding:3px 12px;border-radius:12px;font-size:11px;font-family:Arial,sans-serif}
+  .edu-row{display:flex;justify-content:space-between}
+  .project{margin-bottom:10px}
+  .project-name{font-weight:bold;color:#1a202c}
+  .project-link{color:#0d4f6c;font-size:11px}
+  .section{margin-bottom:22px}
+  .badge{background:#0d4f6c;color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;font-family:Arial,sans-serif;margin-left:8px;vertical-align:middle}
+  @media print{body{padding:20px 28px}}
+</style>
+</head>
+<body>
+<h1>Christopher John B. Dela Peña <span class="badge">ECE · ECT</span></h1>
+<div class="subtitle">Licensed Electronics Engineer · Production Planning Professional · Full Stack Developer</div>
+<div class="contact-row">
+  📱 +63 915 518 4727 &nbsp;|&nbsp;
+  ✉️ <a href="mailto:christopherjohnbdelapena@gmail.com">christopherjohnbdelapena@gmail.com</a> &nbsp;|&nbsp;
+  🔗 <a href="https://www.linkedin.com/in/christopher-john-dela-pe%C3%B1a-806a082b1">LinkedIn</a> &nbsp;|&nbsp;
+  📍 Philippines · Open to Remote
+</div>
+
+<hr/>
+<div class="section">
+<h2>Work Experience</h2>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Production &amp; Inventory Control Planner</span>
+    <span class="job-period">Current · ~5.5 Years</span>
+  </div>
+  <div class="job-company">Enplas Semiconductor Peripherals Inc.</div>
+  <ul>
+    <li>Monitor customer orders end-to-end from raw materials procurement to finished goods delivery</li>
+    <li>Ensure material availability through coordinated purchasing and supplier management</li>
+    <li>Monitor and support production workers' processing performance</li>
+    <li>Validate supplier efficiency through performance KPIs and on-site visits</li>
+    <li>Maintain accurate records using SAP Business One, Meslink, and other enterprise tools</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Production Planner</span>
+    <span class="job-period">5 Years</span>
+  </div>
+  <div class="job-company">Nicera Philippines Inc.</div>
+  <ul>
+    <li>Confirmed sales orders and coordinated with all affected departments</li>
+    <li>Created profitable production plans optimized for delivery schedules and resource utilization</li>
+    <li>Aligned production plans with confirmed raw material arrivals to avoid supply gaps</li>
+    <li>Monitored all active sales orders to ensure complete and on-time delivery</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Production Group Leader</span>
+    <span class="job-period">Previous Role</span>
+  </div>
+  <div class="job-company">Nicera Philippines Inc.</div>
+  <ul>
+    <li>Led production teams to consistently achieve daily targets and quality standards</li>
+    <li>Managed production abnormalities and process deviations promptly</li>
+    <li>Facilitated cross-training of personnel across multiple production processes</li>
+    <li>Managed workforce assignments and workload allocation to maximize goal attainment</li>
+  </ul>
+</div>
+</div>
+
+<hr/>
+<div class="section">
+<h2>Skills &amp; Tools</h2>
+<div class="skills-grid">
+  <span class="skill">Production Planning</span>
+  <span class="skill">Inventory Control</span>
+  <span class="skill">SAP Business One</span>
+  <span class="skill">Microsoft Excel (Expert)</span>
+  <span class="skill">Power BI</span>
+  <span class="skill">React</span>
+  <span class="skill">Vite</span>
+  <span class="skill">Supabase</span>
+  <span class="skill">Vercel</span>
+  <span class="skill">MS Office Suite</span>
+  <span class="skill">Supply Chain Management</span>
+  <span class="skill">Team Leadership</span>
+</div>
+</div>
+
+<hr/>
+<div class="section">
+<h2>Education</h2>
+<div class="edu-row">
+  <div>
+    <strong>Bachelor of Science in Electronics Engineering</strong><br/>
+    <span style="color:#2d6a7f">Bataan Peninsula State University</span><br/>
+    <span style="font-size:11px;color:#777">Licensed Electronics Engineer (ECE) · Licensed Electronics Technician (ECT)</span>
+  </div>
+  <div style="text-align:right;font-size:11px;color:#777">March 2009 – April 2013</div>
+</div>
+</div>
+
+<hr/>
+<div class="section">
+<h2>Projects</h2>
+<div class="project">
+  <span class="project-name">Order Tracking List (2025)</span> — Role-based production order tracking system with 4 roles, 17 fields, CSV export, live date alerts.<br/>
+  <a class="project-link" href="https://order-tracking-list.vercel.app/">https://order-tracking-list.vercel.app/</a>
+</div>
+<div class="project">
+  <span class="project-name">ProcurementFlow (2025)</span> — Full 7-step procurement management system with role-based access for 5 teams.<br/>
+  <a class="project-link" href="https://procurementflow-qe6aifhc6-torz047s-projects.vercel.app/">https://procurementflow-qe6aifhc6-torz047s-projects.vercel.app/</a>
+</div>
+<div class="project">
+  <span class="project-name">ProcureFlow</span> — Procurement system for purchase orders and supplier tracking.<br/>
+  <a class="project-link" href="https://procureflow-e2htxyila-torz047s-projects.vercel.app/">https://procureflow-e2htxyila-torz047s-projects.vercel.app/</a>
+</div>
+</div>
+
+<hr/>
+<div class="section">
+<h2>Languages &amp; Reference</h2>
+<p>🇵🇭 Filipino / Tagalog — Native &nbsp;|&nbsp; 🇬🇧 English — Proficient</p>
+<p style="margin-top:8px"><strong>Reference:</strong> Rhea Bactad, Production Planning Supervisor · Nicera Philippines Inc. · +63 917 560 0768</p>
+</div>
+
+</body>
+</html>`;
+
+  try {
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Christopher_John_Dela_Pena_Resume.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    label.textContent = 'Downloaded! ✓';
+    setTimeout(() => {
+      label.textContent = 'Download Resume';
+      btn.disabled = false;
+    }, 3000);
+
+  } catch (err) {
+    console.error('Download error:', err);
+    label.textContent = 'Error — try again';
+    btn.disabled = false;
+  }
+}
+</script>
 
 </body>
 </html>
